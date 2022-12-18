@@ -1,6 +1,7 @@
 package com.example.crudwithapi.controller;
 
 import com.example.crudwithapi.service.impl.ProductService;
+import com.example.crudwithapi.service.interface_service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/products")
 public class ProductController {
     @Autowired
-    private ProductService productService;
+    private IProductService productService;
 
     @GetMapping
     public ModelAndView list() {

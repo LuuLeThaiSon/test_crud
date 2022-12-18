@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -32,6 +33,7 @@ import java.util.Properties;
 @ComponentScan("com.example.crudwithapi")
 @PropertySource("classpath:upload.properties")
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.example.crudwithapi.service")
 public class AppConfig implements WebMvcConfigurer {
     @Value("${upload}")
     private String upload;
