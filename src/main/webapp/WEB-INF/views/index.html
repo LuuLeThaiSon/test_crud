@@ -48,13 +48,21 @@
         <td th:text="${p.price}"></td>
         <td th:text="${p.quantity}"></td>
         <td th:text="${p.category.name}"></td>
-        <td><a th:href="@{/customers/detailForm/{id}(id=${p.getId()})}">View</a></td>
-        <td><a th:href="@{/customers/editForm/{id}(id=${p.getId()})}">Edit</a></td>
-        <td><a th:href="@{/customers/delete/{id}(id=${p.getId()})}">Delete</a></td>
+        <td><a th:href="@{/products/detail/{id}(id=${p.getId()})}">View</a></td>
+        <td><a th:href="@{/products/update/{id}(id=${p.getId()})}">Edit</a></td>
+        <td><a th:href="@{/products/delete/{id}(id=${p.getId()})}" onclick="return checkDelete()">Delete</a></td>
     </tr>
 </table>
+
 <a href="/products/create">
     <button>Create</button>
 </a>
+
 </body>
 </html>
+
+<script>
+    function checkDelete() {
+        return confirm("muon xoa a`");
+    }
+</script>

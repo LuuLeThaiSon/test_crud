@@ -33,7 +33,7 @@ import java.util.Properties;
 @ComponentScan("com.example.crudwithapi")
 @PropertySource("classpath:upload.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.example.crudwithapi.service")
+@EnableJpaRepositories(basePackages = "com.example.crudwithapi.repository")
 public class AppConfig implements WebMvcConfigurer {
     @Value("${upload}")
     private String upload;
@@ -120,7 +120,7 @@ public class AppConfig implements WebMvcConfigurer {
     public Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         return properties;
     }
 }

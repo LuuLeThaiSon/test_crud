@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 public class ProductService implements IProductService {
-//    @Autowired
+    @Autowired
     private IProductRepository productRepository;
     @Override
     public List<Product> findAll() {
@@ -19,8 +19,8 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product findOne(Long id) {
-        return null;
+    public Optional<Product> findOne(Long id) {
+        return productRepository.findById(id);
     }
 
     @Override

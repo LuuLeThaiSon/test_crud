@@ -1,16 +1,9 @@
 package com.example.crudwithapi.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +11,8 @@ public class Product {
     private String name;
     private Double price;
     private Integer quantity;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+    @ManyToOne(targetEntity = Category.class)
+    @JoinColumn(name = "category_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "category_id"))
     private Category category;
 
     public Product() {
