@@ -1,11 +1,6 @@
 package com.example.crudwithapi.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -14,9 +9,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-
-//    @OneToMany(mappedBy = "category")
-//    private List<Product> products;
 
     public Category() {
     }
@@ -42,11 +34,4 @@ public class Category {
         this.name = name;
     }
 
-//    public List<Product> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(List<Product> products) {
-//        this.products = products;
-//    }
 }
